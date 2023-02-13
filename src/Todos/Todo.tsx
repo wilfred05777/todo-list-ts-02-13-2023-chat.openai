@@ -36,9 +36,6 @@ const Todo: React.FC = () => {
     localStorage.setItem('task', task)
   }, [task])
 
-  /**
-   * handles
-   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
