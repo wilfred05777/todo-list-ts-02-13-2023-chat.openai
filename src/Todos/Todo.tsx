@@ -10,6 +10,11 @@ interface Todo {
 const Todo: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
   const [task, setTask] = useState<string>('')
+  const [tasks, setTasks] = useState<string[]>([])
+
+  /**
+   * 1st experimental =================
+   */
 
   useEffect(() => {
     const storedTodos = localStorage.getItem('todos')
@@ -21,10 +26,14 @@ const Todo: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
-
-  /*
-   * stored task start
+  /**
+   * 1st experimental end=================
    */
+
+  /**
+   * 2nd experimental =================
+   */
+
   useEffect(() => {
     const storedTask = localStorage.getItem('task')
     if (storedTask) {
@@ -35,7 +44,30 @@ const Todo: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('task', task)
   }, [task])
+  /**
+   * 2nd experimental end =================
+   */
 
+  /**
+   * 3rd experimental =================
+   */
+  useEffect(() => {
+    const storedTasks = localStorage.getItem('tasks')
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
+  /**
+   * 3rd experimental end ==============
+   */
+
+  /**
+   * handles
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
