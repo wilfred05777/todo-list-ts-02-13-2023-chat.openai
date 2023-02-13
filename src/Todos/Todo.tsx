@@ -22,6 +22,9 @@ const Todo: React.FC = () => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
+  /*
+   * stored task start
+   */
   useEffect(() => {
     const storedTask = localStorage.getItem('task')
     if (storedTask) {
@@ -33,6 +36,9 @@ const Todo: React.FC = () => {
     localStorage.setItem('task', task)
   }, [task])
 
+  /**
+   * handles
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
